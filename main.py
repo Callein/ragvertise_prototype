@@ -11,7 +11,7 @@ from router.test_api import test_api_router
 load_dotenv()
 
 # FastAPI 앱 생성
-app = FastAPI()
+app = FastAPI(root_path="/api")
 
 # CORS 설정 (필요한 도메인만 허용)
 app.add_middleware(
