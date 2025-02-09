@@ -1,9 +1,9 @@
-from pyexpat.errors import messages
-
 import ollama
 from fastapi import APIRouter, HTTPException, Depends
 
-from model.test_model import GenerateTestRequest
+from schema.search_dto import SearchDTO
+from schema.test_dto import GenerateTestReqDTO
+from service.search_service import SearchService
 from util.database import get_db
 from sqlalchemy.orm import Session
 
@@ -25,7 +25,7 @@ def test_db_connection(db: Session = Depends(get_db)):
 
 
 @test_api_router.post("/generate")
-async def generate_text(request: GenerateTestRequest):
+async def generate_text(request: GenerateTestReqDTO):
     """
     모델을 사용한 텍스트 생성 테스트
     """
@@ -37,5 +37,12 @@ async def generate_text(request: GenerateTestRequest):
         response = ollama.chat(model="mistral", messages=messages)
         return {"response": response["message"]["content"]}
 
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+@test_api_router.post("/search_ptfo")
+async def search_ptfo(request: SearchDTO.PtfoSearchReqDTO):
+    try:
+        return SearchService.ptfo_search(request)
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
