@@ -1,11 +1,13 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from router.healthcheck import healthcheck_router
+from router.generate_router import generate_router
+from router.healthcheck_router import healthcheck_router
 from constants.env_variables import EnvVariables
 from dotenv import load_dotenv
 
-from router.test_api import test_api_router
+from router.rank_router import rank_router
+from router.test_router import test_api_router
 
 # .env 로드
 load_dotenv()
@@ -24,6 +26,8 @@ app.add_middleware(
 
 app.include_router(healthcheck_router, prefix="/healthcheck")
 app.include_router(test_api_router, prefix="/test")
+app.include_router(generate_router, prefix="/generate")
+app.include_router(rank_router, prefix="/rank")
 
 if __name__ == "__main__":
     import uvicorn
