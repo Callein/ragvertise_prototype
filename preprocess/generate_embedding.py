@@ -77,7 +77,7 @@ def build_faiss_indices():
     }
 
     # 6. artifacts 폴더에 pickle 파일로 저장
-    artifacts_dir = "../artifacts"
+    artifacts_dir = "./artifacts"
     os.makedirs(artifacts_dir, exist_ok=True)
     with open(os.path.join(artifacts_dir, "tag_embeddings.pkl"), "wb") as f:
         pickle.dump(tag_artifact, f)
