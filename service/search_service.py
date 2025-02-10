@@ -15,7 +15,6 @@ class SearchService:
     @staticmethod
     def ptfo_search(request: SearchDTO.PtfoSearchReqDTO) -> List[SearchDTO.PtfoSearchRespDTO]:
         """
-        [GPT 사용해 생성한 설명]
         포트폴리오(포폴) 검색을 수행하는 함수입니다.
         사용자 입력(요약 및 태그)을 기반으로, 포폴의 텍스트와 태그 유사도를 각각 계산한 후,
         두 유사도를 가중치(alpha, beta)를 사용해 결합하여 최종 점수를 산출합니다.

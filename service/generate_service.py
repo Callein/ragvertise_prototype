@@ -9,7 +9,6 @@ class GenerateService:
     @staticmethod
     def generate_summary(request: GenerateDTO.SummaryReqDTO) -> GenerateDTO.SummaryServDTO:
         """
-        [GPT 사용해 생성한 설명]
             사용자가 광고 촬영에 대해 자유롭게 입력한 텍스트를 기반으로 LLM(mistral 모델)을 호출하여,
             광고 요청을 정리한 JSON 결과를 얻습니다.
             이 JSON 결과는 "tags"와 "summary" 필드를 포함하며, 이를 통해 SearchService에 전달할 DTO를 생성합니다.

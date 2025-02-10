@@ -15,9 +15,8 @@ load_dotenv()
 # FastAPI 앱 생성
 app = FastAPI(root_path="/api")
 
-# CORS 설정 (필요한 도메인만 허용)
+
 app.add_middleware(
-    CORSMiddleware,
     allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
