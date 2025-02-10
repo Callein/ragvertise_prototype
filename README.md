@@ -41,7 +41,9 @@ DB_PASSWORD=
 
 ### 📌 2.4 Ollama 설치 및 모델 다운로드
 ```shell
-# Ollama 설치 (Mac/Linux)
+# Ollama 설치 (Mac)
+brew install --cask ollama
+# Ollama 설치 (Linux)
 curl -fsSL https://ollama.com/install.sh | sh
 
 # OpenChat 3.5 모델 다운로드 (필요시에만)
