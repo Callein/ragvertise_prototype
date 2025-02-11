@@ -53,6 +53,12 @@ ollama pull openchat:3.5
 ollama pull mistral
 ```
 
+### 📌 2.5 artifact 생성 (preprocess, embedding 생성)
+```shell
+# DB 데이터를 embedding 후 artifact 생성
+python -m preprocess.generate_embedding.py
+```
+
 ## 3️⃣ FastAPI 서버 실행
 ```shell
 # 단순 실행
